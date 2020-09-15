@@ -24,7 +24,7 @@ def check_root_full():
     return check_disk_full(disk="/", min_gb=2, min_percent=10)
 
 def check_cpu_constrained():
-    """Returns True if it fails to resolve Google's URL, False otherwise"""
+    """Returns True if it CPU usage is over 75%"""
     return psutil.cpu_percent(1) > 75
 
 def check_no_network():
@@ -51,5 +51,5 @@ def main():
         sys.exit(1)
     print("Everything ok.")
     sys.exit(0)
-        
+
 main()
